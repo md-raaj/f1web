@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="public/tailwind.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
+    <title>Document</title>
+    
+</head>
+<body x-data="{dark:false}" x-bind:class="dark? 'bg-gray-700 transition duration-1000 text-yellow-700' : 'bg-white transition duration-1000' ">
+
+  <div>
+    <nav>
+      <div class="hidden bg-gray-300 md:block">
+          <div class="flex items-center justify-between ">
+              <div class="grid grid-cols-5 ml-1 text-center lg:gap-x-4 md:gap-x-3">
+                  <a href="index.html" class="p-2 rounded-lg hover:underline hover:text-white hover:bg-gray-900">Home</a>
+                  <a href="contact.html" class="p-2 rounded-lg hover:underline hover:text-white hover:bg-gray-900">Contact</a>
+                  <a href="about.html" class="p-2 rounded-lg hover:underline hover:text-white hover:bg-gray-900">About</a>
+                
+                  <div x-data="{btn : false}">
+                    <button x-on:mouseOver="btn = true" x-on:mouseOut="btn = false" class="p-2 rounded-lg hover:underline hover:text-white hover:bg-gray-900"> Service 
+                      <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div x-show="btn" x-on:mouseOver="btn = true" x-on:mouseOut="btn = false" class="absolute z-10 grid text-black bg-gray-200">
+                      <a href="#" class="px-8 py-3 hover:bg-white">demo</a>
+                      <a href="#" class="px-8 py-3 hover:bg-white">demo</a>
+                      <a href="#" class="px-8 py-3 hover:bg-white">demo</a>
+                    </div>
+                  </div>
+                  
+              </div>
+  
+              <div class="grid p-2 justify-items-center">
+                  <img class="w-14" src="../img/apple.png" alt="...">
+              </div>
+  
+              <div class="flex mr-4 space-x-5">
+                  <a href=""><i class="fab fa-facebook-f"></i></a>
+                  <a href=""><i class="fab fa-twitter"></i></a>
+                  <a href=""><i class="fab fa-instagram"></i></a>
+                  <a href=""><i class="fab fa-linkedin-in"></i></a>
+                  <button x-on:click="dark =! dark"><img src="img/button.png" alt="" class="w-6"></button>
+              </div>
+          </div>
+      </div>
+  
+      <div x-data={open:false} class="block bg-green-400 md:hidden">
+          <div class="flex items-center justify-between h-24">
+              <div class="ml-4">
+                  <img src="../img/apple.png" alt="" class="w-10">
+              </div>
+              <div>
+                  <button @click="open=!open"><li class="mr-4 fas fa-bars"></li></button>
+              </div>
+          </div>
+  
+          <div x-show="open">
+              <div class="flex flex-col ml-4 text-xl">
+                  <a href="index.html" class="p-3">Home</a>
+                  <a href="contact.html" class="p-3">Contact</a>
+                  <a href="about.html" class="p-3">About</a>
+                  
+                  <div x-data="{btn : false}">
+                    <button x-on:mouseOver="btn = true" x-on:mouseOut="btn = false" class="p-2 rounded-lg hover:underline hover:text-white hover:bg-gray-900"> Service 
+                      <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div x-show="btn" x-on:mouseOver="btn = true" x-on:mouseOut="btn = false" class="absolute z-10 grid text-black bg-gray-200">
+                      <a href="#" class="px-8 py-3 hover:bg-white">demo</a>
+                      <a href="#" class="px-8 py-3 hover:bg-white">demo</a>
+                      <a href="#" class="px-8 py-3 hover:bg-white">demo</a>
+                    </div>
+                  </div>
+                  
+              </div>
+              <div class="flex ml-4 gap-x-4">
+                  <a href="" class="p-3"><i class="fab fa-facebook-f"></i></a>
+                  <a href="" class="p-3"><i class="fab fa-instagram"></i></a>
+                  <a href="" class="p-3"><i class="fab fa-linkedin-in"></i></a>
+                  <a href="" class="p-3"><i class="fab fa-twitter"></i></a>
+              </div>
+          </div>
+      </div>
+    </nav>
+
+    
+  <section id="blogs" class="m-5">
+    <div x-data={open:false}>
+      <div class="w-24 py-2 text-center text-white transform bg-black mb-7 rounded-3xl">
+        <button @click="open =! open">Blog</button>
+      </div>
+    
+      <div x-show="open" class="grid gap-5 lg:grid-cols-6 md:grid-cols-3">
+          
+        <div class="p-8 duration-300 transform bg-green-400 border-2 hover:border-black rounded-xl hover:scale-110">
+          <img src="img/h.jpg" alt="" class="rounded-xl">
+          <h1 class="mt-6 text-2xl font-bold">Hello world</h1>
+          <p class="mt-3 text-sm">What Is Content Writing? Content writing is the process of planning.</p>
+        </div>
+    
+        <div class="p-8 duration-300 transform bg-red-400 border-2 hover:border-black rounded-xl hover:scale-110">
+          <img src="img/h.jpg" alt="" class="rounded-xl">
+          <h1 class="mt-6 text-2xl font-bold">Hello world</h1>
+          <p class="mt-3 text-sm">What Is Content Writing? Content writing is the process of planning.</p>
+        </div>
+    
+        <div class="p-8 duration-300 transform bg-yellow-400 border-2 hover:border-black rounded-xl hover:scale-110">
+          <img src="img/h.jpg" alt="" class="rounded-xl">
+          <h1 class="mt-6 text-2xl font-bold">Hello world</h1>
+          <p class="mt-3 text-sm">What Is Content Writing? Content writing is the process of planning.</p>
+        </div>
+    
+        <div class="p-8 duration-300 transform bg-pink-400 border-2 hover:border-black rounded-xl hover:scale-110">
+          <img src="img/h.jpg" alt="" class="rounded-xl">
+          <h1 class="mt-6 text-2xl font-bold">Hello world</h1>
+          <p class="mt-3 text-sm">What Is Content Writing? Content writing is the process of planning.</p>
+        </div>
+    
+        <div class="p-8 duration-300 transform bg-gray-400 border-2 rounded-xl hover:border-black hover:scale-110">
+          <img src="img/h.jpg" alt="" class="rounded-xl">
+          <h1 class="mt-6 text-2xl font-bold">Hello world</h1>
+          <p class="mt-3 text-sm">What Is Content Writing? Content writing is the process of planning.</p>
+        </div>
+    
+        <div class="p-8 duration-300 transform bg-green-400 border-2 rounded-xl hover:border-black hover:scale-110">
+          <img src="img/h.jpg" alt="" class="rounded-xl">
+          <h1 class="mt-6 text-2xl font-bold">Hello world</h1>
+          <p class="mt-3 text-sm">What Is Content Writing? Content writing is the process of planning.</p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="grid p-5 mt-10 bg-gray-200 md:grid-cols-2 rounded-xl">
+      <div>
+        <img src="img/h.jpg" alt="" class="rounded-xl">
+      </div>
+  
+      <div class="flex flex-col justify-center p-5 text-center align-middle">
+        <h1 class="text-2xl">Web Development</h1>
+        <p class="mt-4 text-sm">What Is Content Writing? Content writing is the process of planning.</p>
+      </div>
+    </div>
+  </section>
+  
+  <section x-data={open:false} class="m-5">
+    <div class="w-24 py-2 mb-3 text-center text-white bg-black rounded-3xl">
+      <button @click="open=!open">Services</button>
+    </div>
+  
+    <div x-show="open" id="mainGrid" class="grid grid-cols-1 gap-4 md:grid-cols-2">
+      <div id="firstService" class="grid grid-cols-12 bg-gray-200 rounded-xl hover:opacity-60">
+        <div id="icon" class="flex justify-center pl-5 pr-5 bg-pink-400 span-2 place-items-center rounded-l-xl">
+          <i class="text-2xl fas fa-laptop-code"></i>
+        </div>
+  
+        <div id="descripditon" class="col-span-10 px-8 py-5">
+          <h1 class="2xl">Web Design</h1>
+          <p class="mt-3 text-sm">Time and tide wait for none. Time and tide wait for none.</p>
+        </div>
+      </div>
+  
+      <div id="firstService" class="grid grid-cols-12 bg-gray-200 rounded-xl hover:opacity-60">
+        <div id="icon" class="flex justify-center pl-5 pr-5 bg-pink-400 span-2 place-items-center rounded-l-xl">
+          <i class="text-2xl fas fa-laptop-code"></i>
+        </div>
+  
+        <div id="descripditon" class="col-span-10 px-8 py-5">
+          <h1 class="2xl">Web Design</h1>
+          <p class="mt-3 text-sm">Time and tide wait for none. Time and tide wait for none.</p>
+        </div>
+      </div>
+  
+      <div id="firstService" class="grid grid-cols-12 bg-gray-200 rounded-xl hover:opacity-60">
+        <div id="icon" class="flex justify-center pl-5 pr-5 bg-pink-400 span-2 place-items-center rounded-l-xl">
+          <i class="text-2xl fas fa-laptop-code"></i>
+        </div>
+  
+        <div id="descripditon" class="col-span-10 px-8 py-5">
+          <h1 class="2xl">Web Design</h1>
+          <p class="mt-3 text-sm">Time and tide wait for none. Time and tide wait for none.</p>
+        </div>
+      </div>
+  
+      <div id="firstService" class="grid grid-cols-12 bg-gray-200 rounded-xl hover:opacity-60">
+        <div id="icon" class="flex justify-center pl-5 pr-5 bg-pink-400 span-2 place-items-center rounded-l-xl">
+          <i class="text-2xl fas fa-laptop-code"></i>
+        </div>
+  
+        <div id="descripditon" class="col-span-10 px-8 py-5">
+          <h1 class="2xl">Web Design</h1>
+          <p class="mt-3 text-sm">Time and tide wait for none. Time and tide wait for none.</p>
+        </div>
+      </div>
+    </div> 
+  
+    <!-- <div class="grid gap-6 md:grid-cols-1 lg:grid-cols-2 place-items-center">
+      <div class="p-5 text-center bg-red-400 rounded-xl">
+      Gray <br>
+      Time and tide wait for none. Time and tide wait for none. Time and tide wait for none. Time and tide wait for none
+      </div>
+      <div class="p-5 text-center bg-gray-400 rounded-xl">
+      Gray <br>
+      Time and tide wait for none. Time and tide wait for none. Time and tide wait for none. Time and tide wait for none.
+      </div>
+      <div class="p-5 text-center bg-yellow-400 rounded-xl">
+      Gray <br>
+      Time and tide wait for none. Time and tide wait for none. Time and tide wait for none. Time and tide wait for none.
+      </div>
+      <div class="p-5 text-center bg-green-400 rounded-xl">
+      Gray <br>
+      Time and tide wait for none. Time and tide wait for none. Time and tide wait for none. Time and tide wait for none.
+      </div>
+      <div class="p-5 text-center bg-yellow-400 rounded-xl">
+      Gray <br>
+      Time and tide wait for none. Time and tide wait for none. Time and tide wait for none. Time and tide wait for none.
+      </div>
+      <div class="p-5 text-center bg-green-400 rounded-xl">
+      Gray <br>
+      Time and tide wait for none. Time and tide wait for none. Time and tide wait for none. Time and tide wait for none.
+      </div>
+    </div> -->
+  </section>
+  
+  <section class="mx-5">
+    <div class="w-24 py-2 mb-3 text-center text-white bg-black rounded-3xl">
+      <span>Portfolio</span>
+    </div>
+  
+    <div class="bg-gray-200">
+      <div class="flex grid justify-center p-3 md:grid-cols-2 place-items-center">
+        <div class="pr-2">
+          <div class="mb-2">
+            <h1 class="text-2xl font-bold">Creative Agency</h1>
+            <p class="text-sm">Free resource that will help nderstand the cv design process and improve therai nderstand.</p>
+          </div>
+          <div class="mb-2">
+            <ul>
+              <li><i class="fas fa-chevron-right"></i> HTML 5</li>
+              <li><i class="fas fa-chevron-right"></i> CSS 3</li>
+              <li><i class="fas fa-chevron-right"></i> Git / GitHub</li>
+              <li><i class="fas fa-chevron-right"></i> Photoshop</li>
+              <li><i class="fas fa-chevron-right"></i> Web Development</li>
+            </ul>
+          </div>
+          <a href=""><button class="w-full p-0.5 text-center text-white bg-green-800 rounded-md hover:bg-green-600 mb-3">Visit</button></a>
+        </div>
+        
+        <div>
+          <img src="img/h.jpg" alt="" class="rounded-lg">
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section>
+    <div class="grid p-5 text-white bg-black md:grid-cols-3 place-items-center">
+      <div>
+        <h1 class="mb-2 text-2xl font-bold">Contact Us</h1>
+        <ul class="text-sm">
+          <li>ez printers</li>
+          <li>1st Floor, Unit C</li>
+          <li>23 Heneage Street</li>
+          <li>London E1 5LJ</li> 
+          <li>020 8144 0304</li>
+          <li>print@ezprinters.co.uk</li>
+        </ul>
+      </div>
+      
+      <div>
+        <h1 class="mb-2 text-2xl font-bold">Social</h1>
+        <ul class="grid grid-cols-7 gap-4">
+          <li class="hover:text-red-700"><i class="fab fa-facebook-f"></i></li>
+          <li class="hover:text-red-700"><i class="fab fa-instagram"></i></li>
+          <li class="hover:text-red-700"><i class="fab fa-linkedin-in"></i></li>
+          <li class="hover:text-red-700"><i class="fab fa-twitter"></i></li>
+          <li class="hover:text-red-700"><i class="fab fa-facebook-f"></i></li>
+          <li class="hover:text-red-700"><i class="fab fa-instagram"></i></li>
+          <li class="hover:text-red-700"><i class="fab fa-twitter"></i></li>
+        </ul>
+        <h1 class="mt-3 mb-2 text-2xl font-bold ">We accept</h1>
+        <ul class="grid grid-cols-5 gap-4">
+          <li><img src="img/visa.png" alt="" class="w-10"></li>
+          <li><img src="img/visa.png" alt="" class="w-10"></li>
+          <li><img src="img/visa.png" alt="" class="w-10"></li>
+          <li><img src="img/visa.png" alt="" class="w-10"></li>
+          <li><img src="img/visa.png" alt="" class="w-10"></li>
+        </ul>
+      </div>
+      
+      <div>
+        <h1 class="mb-2 text-2xl font-bold ">Useful Links</h1>
+        <ul class="text-sm">
+          <li class="cursor-pointer hover:text-green-500">Delivery Information</li>
+          <li class="cursor-pointer hover:text-green-500">Privacy Policy</li>
+          <li class="cursor-pointer hover:text-green-500">Terms & Conditions</li>
+          <li class="cursor-pointer hover:text-green-500">Vouchers</li>
+          <li class="cursor-pointer hover:text-green-500">Portfolio</li>
+          <li class="cursor-pointer hover:text-green-500">Contact</li>
+          <li class="cursor-pointer hover:text-green-500">Blog</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  </div>
+
+  <script src="https://kit.fontawesome.com/9418f17761.js" crossorigin="anonymous"></script>
+</body>
+</html>
